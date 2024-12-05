@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AN ASSIGNMENT <b>SIR WAHAB</b></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Using the beautiful font */
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #ffffff; /* Default light mode background */
+            color: #000000; /* Default text color */
+        }
+        .dark-mode {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        .creative-mode {
+            background-color: #ffcc00; /* Creative mode background */
+            color: #000000;
+        }
+        h1, h2 {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            transform: scaleY(-1); /* Mirror effect */
+        }
+        h1 {
+            animation-delay: 0.5s;
+        }
+        h2 {
+            animation-delay: 1s;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .typewriter {
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 6s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: black; }
+        }
+        .toggle-button {
+            margin: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .toggle-button:hover {
+            background-color: #0056b3;
+        }
+        /* New styles for the banner */
+        .banner {
+            background: linear-gradient(90deg, rgba(255, 0, 150, 1), rgba(0, 204, 255, 1));
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            animation: slideIn 1s forwards;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* New styles for the paragraph */
+        .animated-paragraph {
+            font-family: 'Roboto Mono', monospace; /* Using a code-like font */
+            font-size: 18px;
+            animation: fadeInUp 2s forwards; /* Slowed down animation */
+            opacity: 0; /* Start hidden */
+            transform: scaleY(-1); /* Mirror effect */
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        /* Wallpaper button */
+        .wallpaper-button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .wallpaper-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">Welcome to the Assignment <b>Sir Wahab!</b></div>
+    <div style="display: flex; justify-content: space-between; margin: 20px;">
+        <button class="toggle-button" id="modeButton" onclick="toggleMode()">Switch to Creative Mode</button>
+        <button class="wallpaper-button" onclick="changeWallpaper()">Change Wallpaper</button>
+    </div>
+    <h1 class="typewriter">THIS IS A SIMPLE HTML ASSIGNMENT GIVEN BY <b>SIR WAHAB</b></h1>
+    <h2 class="typewriter">THIS IS A SUB-HEADING</h2>
+    <p class="animated-paragraph">
+        <center>THIS IS A PARAGRAPH WHICH WAS WRITTEN BY AREEB SIDDIQUI <b>ROLL NO. :2213</b><br>
+        This assignment demonstrates the use of HTML and CSS to create visually appealing web pages.<br>
+        The use of animations enhances user experience and engagement.<br>
+        Learning to code is a valuable skill in today's digital world.<br>
+        Always strive to improve your coding skills and explore new technologies.<br>
+        Coding is a fun and creative way to express yourself and bring your ideas to life.<br>
+        With practice and patience, you can master the skills needed to become a proficient coder.<br>
+        Don't be afraid to try new things and take risks – it's all part of the learning process.</center>
+    </p>
+    <center>
+    <audio controls>
+        <source src="One Direction - Night Changes.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    </center>
+    <script>
+        let mode = 'light';
+        function toggleMode() {
+            const modeButton = document.getElementById('modeButton');
+            if (mode === 'light') {
+                document.body.classList.add('dark-mode');
+                modeButton.textContent = 'Switch to Creative Mode';
+                mode = 'dark';
+            } else if (mode === 'dark') {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('creative-mode');
+                modeButton.textContent = 'Switch to Light Mode';
+                mode = 'creative';
+            } else {
+                document.body.classList.remove('creative-mode');
+                modeButton.textContent = 'Switch to Creative Mode';
+                mode = 'light';
+            }
+        }
+
+        function changeWallpaper() {
+            const wallpapers = [
+                { url: 'https://picsum.photos/2000/1000', textColor: '#ffffff' },
+                { url: 'https://picsum.photos/2001/1001', textColor: '#000000' },
+                { url: 'https://picsum.photos/2002/1002', textColor: '#ffffff' },
+            ];
+            const randomIndex = Math.floor(Math.random() * wallpapers.length);
+            const selectedWallpaper = wallpapers[randomIndex];
+            document.body.style.backgroundImage = `url(${selectedWallpaper.url})`;
+            document.body.style.color = selectedWallpaper.textColor; // Change text color based on wallpaper
+        }
+    </script>
+</body>
+</html>
